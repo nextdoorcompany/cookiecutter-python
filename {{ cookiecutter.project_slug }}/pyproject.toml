@@ -1,0 +1,110 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "{{ cookiecutter.project_name }}"
+version = "0.0.1"
+dependencies = []
+
+[project.scripts]
+{{ cookiecutter.project_slug }} = "{{ cookiecutter.project_name }}.__main__:main"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "coverage[toml]",
+    "doit",
+    "flake8",
+    "flake8-print",
+    "isort",
+    "pylint",
+    "pytest",
+    "ruff",
+    "rich",
+    "tbump",
+    "vulture",
+]
+
+[tool.pylint.design]
+max-statements = 24
+
+[tool.pylint."messages control"]
+disable = [
+        "missing-module-docstring",
+        "missing-class-docstring",
+        "missing-function-docstring",
+        "invalid-name",
+        "too-few-public-methods",
+        "use-implicit-booleaness-not-len",
+        "line-too-long",
+]
+
+[tool.pylint.typecheck]
+ignored-classes = ["PurePath"]
+
+[tool.coverage.report]
+fail_under = 70
+show_missing = true
+
+[tool.tbump]
+# Uncomment this if your project is hosted on GitHub:
+# github_url = "https://github.com/<user or organization>/<project>/"
+
+[tool.tbump.version]
+current = "0.0.1"
+
+# Example of a semver regexp.
+# Make sure this matches current_version before
+# using tbump
+regex = '''
+  (?P<major>\d+)
+  \.
+  (?P<minor>\d+)
+  \.
+  (?P<patch>\d+)
+  '''
+
+[tool.tbump.git]
+message_template = "Bump to {new_version}"
+tag_template = "v{new_version}"
+
+# For each file to patch, add a [[tool.tbump.file]] config
+# section containing the path of the file, relative to the
+# tbump.toml location.
+[[tool.tbump.file]]
+src = "pyproject.toml"
+search = 'version = "{current_version}"'
+
+[[tool.tbump.file]]
+src = "{{ cookiecutter.project_name }}/__main__.py"
+search = '__version__ = "{current_version}"'
+
+# You can specify a list of commands to
+# run after the files have been patched
+# and before the git commit is made
+
+#  [[tool.tbump.before_commit]]
+#  name = "check changelog"
+#  cmd = "grep -q {new_version} Changelog.rst"
+
+# Or run some commands after the git tag and the branch
+# have been pushed:
+#  [[tool.tbump.after_push]]
+#  name = "publish"
+#  cmd = "./publish.sh"
+
+[tool.ruff]
+select = ["ALL"]
+ignore = [
+          "ANN",      # type annotations
+          "B905",     # zip without strict=
+          "COM812",   # trailing comma missing
+          "D",        # docstrings
+          "E501",     # line length
+          "EXE",      # python executables
+          "I001",     # import block is unsorted
+          "INP",      # implicit namespace package
+          "PT006",    # paramertize-names should be tuple
+          "S101",     # use of assert detected
+]
