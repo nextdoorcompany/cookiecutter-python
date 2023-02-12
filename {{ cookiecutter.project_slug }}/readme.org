@@ -1,3 +1,22 @@
+Directory structure
+#+BEGIN_EXAMPLE
+.
+└── {{ cookiecutter.project_slug }}
+    ├── changelog.org
+    ├── {{ cookiecutter.project_name }}
+    │   ├── {{ cookiecutter.main_file }}.py
+    │   ├── __init__.py
+    │   └── __main__.py
+    ├── dodo.py
+    ├── pyproject.toml
+    ├── pythonrc
+    ├── readme.org
+    ├── requirements-bootstrap.txt
+    └── tests
+        ├── __init__.py
+        └── test_{{ cookiecutter.main_file }}.py
+#+END_EXAMPLE
+
 Run
 #+BEGIN_EXAMPLE
 /.../{{ cookiecutter.project_slug}} $ env/bin/python -m {{ cookiecutter.project_name }}
