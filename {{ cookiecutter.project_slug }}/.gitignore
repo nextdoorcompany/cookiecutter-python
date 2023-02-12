@@ -1,0 +1,7 @@
+*$py.class
+*.py[cod]
+.coverage
+.doit.*
+__pycache__/
+env/
+my_project.egg-info/
