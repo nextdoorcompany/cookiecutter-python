@@ -1,0 +1,9 @@
+Run
+#+BEGIN_EXAMPLE
+/.../{{ cookiecutter.project_slug}} $ env/bin/python -m {{ cookiecutter.project_name }}
+#+END_EXAMPLE
+
+Test
+#+BEGIN_EXAMPLE
+/.../{{ cookiecutter.project_slug}} $ env/bin/python -m pytest
+#+END_EXAMPLE
