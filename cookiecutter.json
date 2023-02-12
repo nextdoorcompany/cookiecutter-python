@@ -2,5 +2,6 @@
     "project_slug": "my-project",
     "project_name": "my_project",
     "scripts_or_bin": "bin",
-    "main_file": "proj"
+    "main_file": "proj",
+    "python_exe": "python"
 }
