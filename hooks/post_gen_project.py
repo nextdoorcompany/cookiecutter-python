@@ -44,3 +44,13 @@ subprocess.run(
         "trunk",
     ]
 )
+
+subprocess.run(
+    [
+        "env/{{cookiecutter.scripts_or_bin}}/black",
+        "-v",
+        "tests/",
+        "{{ cookiecutter.project_name }}",
+        "dodo.py",
+    ]
+)
