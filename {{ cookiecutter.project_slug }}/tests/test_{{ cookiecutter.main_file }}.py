@@ -1,3 +1,8 @@
-import pytest
+import {{ cookiecutter.project_name}}.{{ cookiecutter.main_file }} as f
 
-import {{ cookiecutter.project_name}}.{{ cookiecutter.main_file}}
+
+def test_func():
+    result = f.func()
+
+    two = 2
+    assert result == two
