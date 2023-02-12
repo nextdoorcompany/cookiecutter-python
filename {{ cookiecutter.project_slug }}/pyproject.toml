@@ -43,6 +43,9 @@ disable = [
 [tool.pylint.typecheck]
 ignored-classes = ["PurePath"]
 
+[tool.coverage.run]
+omit = ["{{ cookiecutter.project_name }}/__main__.py"]
+
 [tool.coverage.report]
 fail_under = 70
 show_missing = true

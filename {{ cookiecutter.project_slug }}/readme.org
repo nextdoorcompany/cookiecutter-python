@@ -27,9 +27,19 @@ Test
 /.../{{ cookiecutter.project_slug}} $ env/bin/python -m pytest
 #+END_EXAMPLE
 
+Other commands
+#+BEGIN_EXAMPLE
+/.../{{ cookiecutter.project_slug}} $ env/bin/doit list
+#+END_EXAMPLE
+
 Add remote
 #+BEGIN_EXAMPLE
 /.../{{ cookiecutter.project_slug}} $ git remote add origin <remote url>
 /.../{{ cookiecutter.project_slug}} $ git remote -v
 /.../{{ cookiecutter.project_slug}} $ git push -u origin trunk
+#+END_EXAMPLE
+
+Warning - EXCLUDED FROM COVERAGE - see pyproject.toml
+#+BEGIN_EXAMPLE
+/.../{{ cookiecutter.project_slug}}/{{ cookiecutter.project_name }}/__main__.py
 #+END_EXAMPLE

@@ -54,3 +54,10 @@ subprocess.run(
         "dodo.py",
     ]
 )
+
+subprocess.run(
+    [
+        "cat",
+        "readme.org",
+    ]
+)
