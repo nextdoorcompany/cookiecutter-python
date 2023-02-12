@@ -26,3 +26,10 @@ Test
 #+BEGIN_EXAMPLE
 /.../{{ cookiecutter.project_slug}} $ env/bin/python -m pytest
 #+END_EXAMPLE
+
+Add remote
+#+BEGIN_EXAMPLE
+/.../{{ cookiecutter.project_slug}} $ git remote add origin <remote url>
+/.../{{ cookiecutter.project_slug}} $ git remote -v
+/.../{{ cookiecutter.project_slug}} $ git push -u origin trunk
+#+END_EXAMPLE
