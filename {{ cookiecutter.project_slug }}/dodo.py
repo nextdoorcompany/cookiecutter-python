@@ -114,7 +114,7 @@ def task_black():
 def task_coverage():
     return {
         "actions": [
-            ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source=barbell", "-m", "pytest", "tests"],
+            ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source={{ cookiecutter.project_name }}", "-m", "pytest", "tests"],
             ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "report"],
         ],
         "uptodate": [False],
@@ -125,7 +125,7 @@ def task_coverage():
 def task_coverage_with_fail_under():
     return {
         "actions": [
-            ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source=barbell", "-m", "pytest", "tests"],
+            ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source={{ cookiecutter.project_name }}", "-m", "pytest", "tests"],
             ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "report"],
         ],
         "uptodate": [False],
@@ -135,7 +135,7 @@ def task_coverage_with_fail_under():
 def task_vulture():
     return {
         "actions": [
-            ["env/{{ cookiecutter.scripts_or_bin }}/vulture", "barbell"],
+            ["env/{{ cookiecutter.scripts_or_bin }}/vulture", "{{ cookiecutter.project_name }}"],
         ],
         "uptodate": [False],
     }
