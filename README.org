@@ -4,6 +4,7 @@ A [[https://github.com/cookiecutter/cookiecutter][cookiecutter]] template for a 
 + [[https://pydoit.org/][doit]] for task running
 + [[https://github.com/PyCQA/flake8][flake8]], [[https://github.com/PyCQA/pylint][pylint]], and [[https://github.com/charliermarsh/ruff][ruff]] for linting
 + [[https://github.com/psf/black][black]] and [[https://pycqa.github.io/isort/][isort]] for formatting
++ [[https://github.com/jazzband/pip-tools][pip-tools]] for managing dependencies
 + [[https://github.com/pytest-dev/pytest/][pytest]] and [[https://github.com/nedbat/coveragepy][coverage]] for testing
 + [[https://github.com/Textualize/rich][rich]] for a better looking REPL
 + [[https://github.com/your-tools/tbump][tbump]] for version advancing
@@ -14,3 +15,16 @@ A [[https://github.com/cookiecutter/cookiecutter][cookiecutter]] template for a 
 cookiecutter gh:nextdoorcompany/cookiecutter-python
 #+END_SRC
 
+Initializes a [[https://docs.python.org/3/library/venv.html][venv]] and a [[https://git-scm.com/][git]] repository.
+
+See the generated readme in the project directory.
+
+** Variables
++ *project_slug* - name of project directory and default name of console script
++ *project_name* - name of the internal package
++ *scripts_or_bin* - based on platform, directory in virtual environment with scripts
++ *main_file* - default first Python file in package
++ *python_exe* - Python executable used to create virtual environment
+
+** Emacs
+Generated [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html][.dir-locals.el]] file sets ~python-shell-virtual-root~ so ~C-c C-p~ opens a REPL in the virtual environment.  In addition, ~compile-command~ is set to use doit for linting and testing.  Finally, the black formatting command is set for use in a tool like [[https://github.com/purcell/emacs-reformatter][emacs-reformatter]].
