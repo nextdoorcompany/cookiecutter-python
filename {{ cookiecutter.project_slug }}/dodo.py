@@ -205,6 +205,47 @@ def task_upgrade_deps():
     return {"actions": [python_upgrade_deps]}
 
 
+def task_install_deps():
+    "Reads from pyproject.toml and installs new dependencies."
+    def python_upgrade_deps():
+        subprocess.call(
+            [
+                "env/{{ cookiecutter.scripts_or_bin }}/pip-compile",
+                "--quiet",
+                "--output-file",
+                "requirements.txt",
+                "--generate-hashes",
+                "--resolver",
+                "backtracking",
+                "pyproject.toml",
+            ]
+        )
+        subprocess.call(
+            [
+                "env/{{ cookiecutter.scripts_or_bin }}/pip-compile",
+                "--quiet",
+                "--extra",
+                "dev",
+                "--output-file",
+                "requirements-dev.txt",
+                "--generate-hashes",
+                "--resolver",
+                "backtracking",
+                "pyproject.toml",
+            ]
+        )
+        subprocess.call(
+            [
+                "env/{{ cookiecutter.scripts_or_bin }}/pip-sync",
+                "requirements.txt",
+                "requirements-dev.txt",
+            ]
+        )
+        return True
+
+    return {"actions": [python_upgrade_deps]}
+
+
 SEMVER = """MAJOR version when you make incompatible API changes
 MINOR version when you add functionality in a backwards compatible manner
 PATCH version when you make backwards compatible bug fixes"""
