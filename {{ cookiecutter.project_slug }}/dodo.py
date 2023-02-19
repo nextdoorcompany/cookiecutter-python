@@ -29,6 +29,7 @@ python_files = (
 
 
 def task_flake8():
+    "Runs flake8 on all Python files."
     for f in python_files:
         yield {
             "name": f.name,
@@ -47,6 +48,7 @@ def task_flake8():
 
 
 def task_lint():
+    "Runs pylint on all Python files."
     for f in python_files:
         yield {
             "name": f.name,
@@ -66,6 +68,7 @@ def task_lint():
 
 
 def task_test():
+    "Runs pytest on all test files."
     for f in test_files:
         yield {
             "name": f.name,
@@ -75,6 +78,7 @@ def task_test():
 
 
 def task_isort():
+    "Runs isort in check mode on all Python files."
     for f in python_files:
         yield {
             "name": f.name,
@@ -94,6 +98,7 @@ def task_isort():
 
 
 def task_black():
+    "Runs black in check mode on all Python files."
     for f in python_files:
         yield {
             "name": f.name,
@@ -112,6 +117,7 @@ def task_black():
 
 
 def task_coverage():
+    "Runs coverage over pytest on the test directory."
     return {
         "actions": [
             ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source={{ cookiecutter.project_name }}", "-m", "pytest", "tests"],
@@ -123,6 +129,7 @@ def task_coverage():
 
 
 def task_coverage_with_fail_under():
+    "Runs coverage over pytest on the test directory with no output unless coverage is below threshold."
     return {
         "actions": [
             ["env/{{ cookiecutter.scripts_or_bin }}/coverage", "run", "--source={{ cookiecutter.project_name }}", "-m", "pytest", "tests"],
@@ -133,6 +140,7 @@ def task_coverage_with_fail_under():
 
 
 def task_vulture():
+    "Runs vulture on the source directory."
     return {
         "actions": [
             ["env/{{ cookiecutter.scripts_or_bin }}/vulture", "{{ cookiecutter.project_name }}"],
@@ -142,6 +150,7 @@ def task_vulture():
 
 
 def task_build():
+    "Creates a wheel with no dependencies in the build directory."
     def python_build():
         build_folder = Path("build")
         if not build_folder.exists():
@@ -164,6 +173,7 @@ def task_build():
 
 
 def task_upgrade_deps():
+    "Reads from pyproject.toml and installs and upgrades all dependencies."
     def python_upgrade_deps():
         subprocess.call(
             [
@@ -222,6 +232,7 @@ PATCH version when you make backwards compatible bug fixes"""
 
 
 def task_tbump():
+    "Bumps version number in pyproject.toml and __version__.py"
     def run_tbump():
         print(SEMVER)  # noqa: T201
         print(f"Current: {__version__}")  # noqa: T201
@@ -253,6 +264,7 @@ def task_tbump():
 
 
 def task_ruff():
+    "Runs ruff on all Python files."
     for f in python_files:
         yield {
             "name": f.name,
