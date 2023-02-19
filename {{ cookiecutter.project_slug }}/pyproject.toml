@@ -17,7 +17,6 @@ dev = [
     "doit",
     "flake8",
     "flake8-print",
-    "isort",
     "pylint",
     "pytest",
     "ruff",
@@ -106,7 +105,6 @@ ignore = [
           "D",        # docstrings
           "E501",     # line length
           "EXE",      # python executables
-          "I001",     # import block is unsorted
           "INP",      # implicit namespace package
           "PT006",    # paramertize-names should be tuple
           "S101",     # use of assert detected

@@ -6,7 +6,6 @@ from {{ cookiecutter.project_name }}.__main__ import __version__
 
 DOIT_CONFIG = {
     "default_tasks": [
-        "isort",
         "black",
         "lint",
         "flake8",
@@ -73,26 +72,6 @@ def task_test():
         yield {
             "name": f.name,
             "actions": [["env/{{ cookiecutter.scripts_or_bin }}/python", "-m", "pytest", f]],
-            "file_dep": [f],
-        }
-
-
-def task_isort():
-    "Runs isort in check mode on all Python files."
-    for f in python_files:
-        yield {
-            "name": f.name,
-            "actions": [
-                [
-                    "env/{{ cookiecutter.scripts_or_bin }}/python",
-                    "-m",
-                    "isort",
-                    "--profile",
-                    "black",
-                    "--check",
-                    f,
-                ]
-            ],
             "file_dep": [f],
         }
 
