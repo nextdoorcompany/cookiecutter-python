@@ -276,3 +276,21 @@ def task_ruff():
             ],
             "file_dep": [f],
         }
+
+
+def task_ruff_fix_imports():
+    "Fixes import sorting using ruff for all Python files."
+    for f in python_files:
+        yield {
+            "name": f.name,
+            "actions": [
+                [
+                    r"env/{{ cookiecutter.scripts_or_bin }}/ruff",
+                    "--fix",
+                    "--select",
+                    "I001",
+                    f,
+                ]
+            ],
+            "file_dep": [f],
+        }
