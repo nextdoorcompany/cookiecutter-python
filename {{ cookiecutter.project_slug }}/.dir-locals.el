@@ -10,7 +10,7 @@
                            (setenv "PYTHONSTARTUP" (expand-file-name "pythonrc" project-root))
                            (setenv "PYTHONPATH" project-root)
                            (setq-local gud-pdb-command-name
-                                       (concat (expand-file-name "env/{{ cookiecutter.scripts_or_bin }}/python" project-root) " -m pdb main.py"))
+                                       (concat (expand-file-name "env/{{ cookiecutter.scripts_or_bin }}/python" project-root) " -m pdb -m {{ cookiecutter.project_name }}"))
                            (setq-local black-command
                                        (expand-file-name "env/{{ cookiecutter.scripts_or_bin }}/black" project-root))
                            (setq-local python-shell-virtualenv-root
