@@ -1,5 +1,2 @@
-* TODO configure pdb in Emacs
 * TODO remove isort?
-* TODO scripts_or_bin a cookiecutter choice
-[[https://cookiecutter.readthedocs.io/en/2.1.1/advanced/choice_variables.html][docs choice variables]]
 * TODO optionally bootstrap command line or web project
