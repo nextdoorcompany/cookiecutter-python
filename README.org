@@ -1,7 +1,7 @@
 * Cookiecutter Python
 A [[https://github.com/cookiecutter/cookiecutter][cookiecutter]] template for a [[https://www.python.org/][Python]] project.
 
-+ [[https://github.com/psf/black][black]] and [[https://pycqa.github.io/isort/][isort]] for formatting
++ [[https://github.com/psf/black][black]] for formatting
 + [[https://pydoit.org/][doit]] for task running
 + [[https://github.com/PyCQA/flake8][flake8]], [[https://github.com/PyCQA/pylint][pylint]], and [[https://github.com/charliermarsh/ruff][ruff]] for linting
 + [[https://github.com/jazzband/pip-tools][pip-tools]] for managing dependencies
@@ -27,4 +27,4 @@ See the generated readme in the project directory.
 + *python_exe* - Python executable used to create virtual environment
 
 ** Emacs
-Generated [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html][.dir-locals.el]] file sets ~python-shell-virtual-root~ so ~C-c C-p~ opens a REPL in the virtual environment.  In addition, ~compile-command~ is set to use doit for linting and testing.  Finally, the black formatting command is set for use in a tool like [[https://github.com/purcell/emacs-reformatter][emacs-reformatter]].
+Generated [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Directory-Variables.html][.dir-locals.el]] file sets ~python-shell-virtual-root~ so ~C-c C-p~ opens a REPL in the virtual environment.  In addition, ~compile-command~ is set to use doit for linting and testing and ~M-x pdb~ will default to the main program entry point.  Finally, the black formatting command is set for use in a tool like [[https://github.com/purcell/emacs-reformatter][emacs-reformatter]].
