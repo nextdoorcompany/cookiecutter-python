@@ -1,7 +1,7 @@
 {
     "project_slug": "my-project",
     "project_name": "my_project",
-    "scripts_or_bin": "bin",
+    "scripts_or_bin": ["bin", "Scripts"],
     "main_file": "proj",
     "python_exe": "python"
 }
