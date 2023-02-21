@@ -4,4 +4,4 @@
 .doit.*
 __pycache__/
 env/
-my_project.egg-info/
+*.egg-info/
