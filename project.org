@@ -1,2 +1,1 @@
-* TODO remove isort?
 * TODO optionally bootstrap command line or web project
