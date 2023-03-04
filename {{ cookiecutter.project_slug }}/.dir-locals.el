@@ -4,7 +4,11 @@
 ((nil . ((eval . (progn
                    (setq-local project-root (expand-file-name (locate-dominating-file "." ".dir-locals.el")))
                    (setq-local compile-command
-                               (concat (expand-file-name "env/{{ cookiecutter.scripts_or_bin }}/doit" project-root) " -f " (expand-file-name "dodo.py" project-root)))))))
+                               (concat (expand-file-name "env/{{ cookiecutter.scripts_or_bin }}/doit" project-root) " -f " (expand-file-name "dodo.py" project-root)))
+                   (unless (boundp '{{ cookiecutter.project_slug }}/elisp-loaded)
+                     (load-file
+                      (expand-file-name
+                       "project-snippets.el" project-root))))))))
  (python-mode . ((mode . black-on-save)
                  (eval . (progn
                            (setenv "PYTHONSTARTUP" (expand-file-name "pythonrc" project-root))
