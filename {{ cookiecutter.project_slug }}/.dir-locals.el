@@ -8,7 +8,7 @@
                    (unless (boundp '{{ cookiecutter.project_slug }}/elisp-loaded)
                      (load-file
                       (expand-file-name
-                       "project-snippets.el" project-root))))))))
+                       "project-snippets.el" project-root)))))))
  (python-mode . ((mode . black-on-save)
                  (eval . (progn
                            (setenv "PYTHONSTARTUP" (expand-file-name "pythonrc" project-root))
