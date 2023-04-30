@@ -8,7 +8,6 @@ DOIT_CONFIG = {
     "default_tasks": [
         "black",
         "lint",
-        "flake8",
         "test",
         "ruff",
         "coverage_with_fail_under",
@@ -25,25 +24,6 @@ test_files = list((cwd / "tests").glob("test*.py"))
 python_files = (
     list(cwd.glob("*.py")) + list((cwd / "{{ cookiecutter.project_name }}").glob("*.py")) + test_files
 )
-
-
-def task_flake8():
-    "Runs flake8 on all Python files."
-    for f in python_files:
-        yield {
-            "name": f.name,
-            "actions": [
-                [
-                    "env/{{ cookiecutter.scripts_or_bin }}/python",
-                    "-m",
-                    "flake8",
-                    "--max-complexity",
-                    "7",
-                    f,
-                ]
-            ],
-            "file_dep": [f],
-        }
 
 
 def task_lint():
