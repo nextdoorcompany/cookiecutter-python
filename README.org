@@ -3,7 +3,7 @@ A [[https://github.com/cookiecutter/cookiecutter][cookiecutter]] template for a 
 
 + [[https://github.com/psf/black][black]] for formatting
 + [[https://pydoit.org/][doit]] for task running
-+ [[https://github.com/PyCQA/flake8][flake8]], [[https://github.com/PyCQA/pylint][pylint]], and [[https://github.com/charliermarsh/ruff][ruff]] for linting
++ [[https://github.com/PyCQA/pylint][pylint]] and [[https://github.com/charliermarsh/ruff][ruff]] for linting
 + [[https://github.com/jazzband/pip-tools][pip-tools]] for managing dependencies
 + [[https://github.com/pytest-dev/pytest/][pytest]] and [[https://github.com/nedbat/coveragepy][coverage]] for testing
 + [[https://github.com/Textualize/rich][rich]] for a better looking REPL
